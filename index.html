@@ -14,6 +14,9 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+	<script src="https://code.highcharts.com/stock/modules/data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 	<style>
 		/*@font-face {
 		    font-family: 'Graffiti City';
@@ -229,6 +232,31 @@
 			margin: 0 auto;
 			font-size:1.6rem;
 		}
+		.stocks-trading-container {
+		  position: absolute;
+		  top: 2%;
+		  right: 2%;
+		  min-width:200px;
+		  height: 160px;
+		  opacity: 0.8; 
+		  border-radius: 10px;
+		  background: transparent;
+		  border: 3px solid rgb(255,255,255, 0.3);
+		  text-shadow: 0 4px 8px rgba(0,0,0,0.7);
+		  z-index: 11;
+		  padding: 0.4rem 0.2rem;
+		  cursor: pointer;
+		  transition: all 0.5s ease-in;
+		  -webkit-transition: all 0.5s ease-in;
+		  font-family: 'Acme', sans-serif;
+		}
+		.btn_onboarding_close {
+			position: absolute;
+			top: 2%;
+			right: 2%;
+			font-size:2rem;
+			z-index:1;
+		}
 	</style>
   </head>
   <body>
@@ -240,6 +268,131 @@
 	  	<div class="grid_steam_container">
 		    <div id="stream1" class="stream_container s1" onclick="expandStream(this.id)">
 		    	<iframe src="//iframe.dacast.com/b/181920/c/575120" width="580" height="411" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+		    	<div class="stocks-trading-container chart" title="GME">
+					<div id="stock-chart"></div>
+			    </div>
+			    <script>
+			    	Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
+
+			    	Highcharts.chart('stock-chart', {
+				        chart: {
+				            zoomType: 'x',
+				            backgroundColor: 'transparent',
+				            spacing: [10,10,0,10],
+				          height: '200px',
+				          // width: '300px',
+				        },
+				        title: {
+				            text: ''
+				        },
+				        xAxis: {
+				            type: 'datetime',
+				            endOnTick: false,
+				            gridLineWidth: 0,
+				            lineWidth: 0,
+				            tickLength: 0,
+				            labels: {
+				                   style: {
+				                       fontSize: '0.5rem',
+				                       color: 'rgb(255,255,255,0.7)',
+				                   },
+				                   // formatter: function() {
+				                   //   return '$' + this.value + 'T';
+				                   // }
+				             }
+				        },
+				        yAxis: {
+				            title: {
+				                text: '',
+				            },
+				            gridLineWidth: 0,
+				            lineWidth: 0,
+				            labels: {
+				                 style: {
+				                     fontSize: '0.5rem',
+				                     color: 'rgb(255,255,255,0.7)',
+				                 },
+				                 // formatter: function() {
+				                 //   return '$' + this.value + 'T';
+				                 // }
+				           }
+				        },
+				        defs: {
+				          glow: {
+				              tagName: 'filter',
+				              id: 'glow',
+				              opacity: 0.7,
+				              children: [{
+				                  tagName: 'feGaussianBlur',
+				                  result: 'coloredBlur',
+				                  stdDeviation: 3.5
+				              }, {
+				                  tagName: 'feMerge',
+				                  children: [{
+				                      tagName: 'feMergeNode',
+				                      in: 'coloredBlur'
+				                  }, {
+				                      tagName: 'feMergeNode',
+				                      in: 'SourceGraphic'
+				                  }]
+				              }]
+				          }
+				      },
+				        legend: {
+				            enabled: false
+				        },
+				      exporting: {
+				        enabled: false
+				      },
+				      credits: {
+				          enabled: false
+				      },
+				        plotOptions: {
+				            area: {
+				                fillColor: {
+				                    linearGradient: {
+				                        x1: 0,
+				                        y1: 0,
+				                        x2: 0,
+				                        y2: 1
+				                    },
+				                    stops: [
+				                        [0, Highcharts.getOptions().colors[0]],
+				                        [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+				                    ]
+				                },
+				                shadow: true,
+				                marker: {
+				                    radius: 2
+				                },
+				                lineWidth: 1,
+				                states: {
+				                    hover: {
+				                        lineWidth: 1
+				                    }
+				                },
+				                threshold: null
+				            }
+				        },
+
+				        series: [{
+				            type: 'area',
+				            name: 'GME',
+				            data: data,
+				            animation: {
+				              duration: 2000
+				            },
+				          shadow: {
+				                color: 'blue',
+				                width: 10,
+				                offsetX: 0,
+				                offsetY: 0
+				            }
+				        }]
+				      
+					});
+				});
+			    </script>
 		    	 <div class="live-players-container">
 			        <span id="live-players-num" class="live-players-number">53k</span>
 			        <span class="fas fa-eye"></span>    
@@ -276,6 +429,7 @@
 		}
 	</script>
 	<div class="onboarding_registration_container animate__animated animate__bounceInDown animate__delay-5s" title="🤩">
+		<div class="btn_onboarding_close" onclick="closeRegistration()">✖️</div>
 		<div class="onboarding-registration_slide initiation">
 			<span class="animate__animated animate__flash animate__infinite animate__slower" style="font-size: 3rem; margin: ">Accepting Applications</span>
 			<div class="onboarding_registration__msg">
@@ -288,5 +442,12 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		var closeRegistration = function(e) {
+			$('.onboarding_registration_container').removeClass('animate__animated animate__bounceInDown animate__delay-5s').promise().done(function() {
+				$('.onboarding_registration_container').removeClass('animate__animated animate__bounceOutUp');
+			});
+		}
+	</script>
   </body>
 </html>
