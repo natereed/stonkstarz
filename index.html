@@ -1,6 +1,7 @@
 <html>
   <head>
 	<title>Stonk Starz</title>
+	<link rel="shortcut icon" href="static/logo/stonkstarz_logo_100.ico">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
@@ -14,7 +15,7 @@
 		}
 		.logo__header_container {
 			position: absolute;
-			top: 35%;
+			top: 29%;
 			left: 0;
 			right:0;
 			margin: 0 auto;
@@ -30,13 +31,27 @@
 		}
 		.logo__header_container h1 {
 			font-family: 'Goldman', cursive;
-			font-size: 7rem;
+			font-size: 10rem;
 			color:white;
 			text-shadow:0 0 5px #fff,
 			          0 0 10px #fff, 
 			          0 0 20px red, 
 			          0 0 30px yellow,
 			          0 0 50px blue;
+		}
+		.stonkstarz_logo {
+			position: absolute;
+			top: -10%;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			background-image: url(static/logo/stonkstarz_logo_500.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			z-index:-1;
+			width: 500px;
+			height: 500px;
 		}
 		.outer_div_container {
 			position:relative;
@@ -70,12 +85,6 @@
 			    0 0 30px 12px #f0f, /* middle magenta */
 			    0 0 17px 11px #0ff; /* outer cyan */
 		}
-		.steam_container.s1 {
-			box-shadow:
-			    0 0 5px 2.5px #fff,  /* inner white */
-			    0 0 30px 12px #f0f, /* middle magenta */
-			    0 0 17px 11px #0ff; /* outer cyan */
-		}
 		iframe {
 			border-radius:10px;
 		}
@@ -98,6 +107,7 @@
   <body>
   	<div class="logo__header_container">
   		<h1>Stonk Starz</h1>
+  		<div class="stonkstarz_logo"></div>
   	</div>
   	<div class="outer_div_container">
 	  	<div class="grid_steam_container">
