@@ -357,7 +357,7 @@
 				                        y2: 1
 				                    },
 				                    stops: [
-				                        [0, Highcharts.getOptions().colors[0]],
+				                        [0, 'fuchsia'],
 				                        [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
 				                    ]
 				                },
@@ -379,11 +379,12 @@
 				            type: 'area',
 				            name: 'GME',
 				            data: data,
+				            color: 'white',
 				            animation: {
 				              duration: 2000
 				            },
 				          shadow: {
-				                color: 'blue',
+				                color: 'fuchsia',
 				                width: 10,
 				                offsetX: 0,
 				                offsetY: 0
