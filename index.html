@@ -236,8 +236,10 @@
 		  position: absolute;
 		  top: 2%;
 		  right: 2%;
+		  width: 20%;
+		  height: 15%;
 		  min-width:200px;
-		  height: 160px;
+		  min-height: 160px;
 		  opacity: 0.8; 
 		  border-radius: 10px;
 		  background: transparent;
@@ -250,12 +252,17 @@
 		  -webkit-transition: all 0.5s ease-in;
 		  font-family: 'Acme', sans-serif;
 		}
+		#stock-chart {
+			width: 100%;
+			height: 100%;
+		}
 		.btn_onboarding_close {
 			position: absolute;
 			top: 2%;
 			right: 2%;
 			font-size:2rem;
 			z-index:1;
+			cursor:pointer;
 		}
 	</style>
   </head>
@@ -446,7 +453,7 @@
 	<script>
 		var closeRegistration = function(e) {
 			$('.onboarding_registration_container').removeClass('animate__animated animate__bounceInDown animate__delay-5s').promise().done(function() {
-				$('.onboarding_registration_container').removeClass('animate__animated animate__bounceOutUp');
+				$('.onboarding_registration_container').addClass('animate__animated animate__bounceOutUp');
 			});
 		}
 	</script>
