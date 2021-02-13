@@ -171,7 +171,7 @@
 			right:0;
 			left: 0;
 			margin: 0 auto;
-			width: 30%;
+			width: 40%;
 			/*height: 60%;*/
 			background: rgb(255,255,255, 0.95);
 			text-shadow: 0 4px 8px rgb(0,0,0,0.6);
@@ -182,6 +182,10 @@
 			z-index:11;
 			text-align: center;
 			padding: 1rem 0.4rem 2rem 0.4rem;
+			box-shadow:
+			    0 0 5px 2.5px #fff,  /* inner white */
+			    0 0 30px 12px #f0f, /* middle magenta */
+			    0 0 17px 11px #0ff;
 		}
 		.onboarding_registration_container::before {
 			content: attr(title);
@@ -235,7 +239,7 @@
 		.stocks-trading-container {
 		  position: absolute;
 		  top: 2%;
-		  right: 2%;
+		  right: 1.5%;
 		  width: 20%;
 		  height: 15%;
 		  min-width:200px;
@@ -267,195 +271,9 @@
 	</style>
   </head>
   <body>
-  	<div class="logo__header_container">
-  		<h1>Stonk Starz</h1>
-  		<div class="stonkstarz_logo"></div>
-  	</div>
-  	<div class="outer_div_container">
-	  	<div class="grid_steam_container">
-		    <div id="stream1" class="stream_container s1" onclick="expandStream(this.id)">
-		    	<iframe src="//iframe.dacast.com/b/181920/c/575120" width="580" height="411" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-		    	<div class="stocks-trading-container chart" title="GME">
-					<div id="stock-chart"></div>
-			    </div>
-			    <script>
-			    	Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
-
-			    	Highcharts.chart('stock-chart', {
-				        chart: {
-				            zoomType: 'x',
-				            backgroundColor: 'transparent',
-				            spacing: [10,10,0,10],
-				          height: '200px',
-				          // width: '300px',
-				        },
-				        title: {
-				            text: ''
-				        },
-				        xAxis: {
-				            type: 'datetime',
-				            endOnTick: false,
-				            gridLineWidth: 0,
-				            lineWidth: 0,
-				            tickLength: 0,
-				            labels: {
-				                   style: {
-				                       fontSize: '0.5rem',
-				                       color: 'rgb(255,255,255,0.7)',
-				                   },
-				                   // formatter: function() {
-				                   //   return '$' + this.value + 'T';
-				                   // }
-				             }
-				        },
-				        yAxis: {
-				            title: {
-				                text: '',
-				            },
-				            gridLineWidth: 0,
-				            lineWidth: 0,
-				            labels: {
-				                 style: {
-				                     fontSize: '0.5rem',
-				                     color: 'rgb(255,255,255,0.7)',
-				                 },
-				                 // formatter: function() {
-				                 //   return '$' + this.value + 'T';
-				                 // }
-				           }
-				        },
-				        defs: {
-				          glow: {
-				              tagName: 'filter',
-				              id: 'glow',
-				              opacity: 0.7,
-				              children: [{
-				                  tagName: 'feGaussianBlur',
-				                  result: 'coloredBlur',
-				                  stdDeviation: 3.5
-				              }, {
-				                  tagName: 'feMerge',
-				                  children: [{
-				                      tagName: 'feMergeNode',
-				                      in: 'coloredBlur'
-				                  }, {
-				                      tagName: 'feMergeNode',
-				                      in: 'SourceGraphic'
-				                  }]
-				              }]
-				          }
-				      },
-				        legend: {
-				            enabled: false
-				        },
-				      exporting: {
-				        enabled: false
-				      },
-				      credits: {
-				          enabled: false
-				      },
-				        plotOptions: {
-				            area: {
-				                fillColor: {
-				                    linearGradient: {
-				                        x1: 0,
-				                        y1: 0,
-				                        x2: 0,
-				                        y2: 1
-				                    },
-				                    stops: [
-				                        [0, 'fuchsia'],
-				                        [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-				                    ]
-				                },
-				                shadow: true,
-				                marker: {
-				                    radius: 2
-				                },
-				                lineWidth: 1,
-				                states: {
-				                    hover: {
-				                        lineWidth: 1
-				                    }
-				                },
-				                threshold: null
-				            }
-				        },
-
-				        series: [{
-				            type: 'area',
-				            name: 'GME',
-				            data: data,
-				            color: 'white',
-				            animation: {
-				              duration: 2000
-				            },
-				          shadow: {
-				                color: 'fuchsia',
-				                width: 10,
-				                offsetX: 0,
-				                offsetY: 0
-				            }
-				        }]
-				      
-					});
-				});
-			    </script>
-		    	 <div class="live-players-container">
-			        <span id="live-players-num" class="live-players-number">53k</span>
-			        <span class="fas fa-eye"></span>    
-			    </div>
-		    </div>
-		    <div id="stream2" class="stream_container s2" onclick="expandStream(this.id)">
-		    	<iframe src="//iframe.dacast.com/b/181920/c/575114" width="580" height="411" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-		    	<div class="live-players-container">
-			        <span id="live-players-num" class="live-players-number">160k</span>
-			        <span class="fas fa-eye"></span>    
-			    </div>
-		    </div>
-		    <div id="stream3" class="stream_container s3" onclick="expandStream(this.id)">
-		    	<iframe src="//iframe.dacast.com/b/181920/c/575046" width="580" height="411" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-		    	<div class="live-players-container">
-			        <span id="live-players-num" class="live-players-number">16k</span>
-			        <span class="fas fa-eye"></span>    
-			    </div>
-		    </div>
-		    <div id="stream4" class="stream_container s4" onclick="expandStream(this.id)">
-		    	<iframe src="//iframe.dacast.com/b/181920/c/575040" width="580" height="411" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-		    	<div class="live-players-container">
-			        <span id="live-players-num" class="live-players-number">32k</span>
-			        <span class="fas fa-eye"></span>    
-			    </div>
-		    </div>
-		</div>
+	<div class="logo__header_container">
+		<h1>Stonk Starz</h1>
+		<div class="stonkstarz_logo"></div>
 	</div>
-	<script>
-		var expandStream = function(id) {
-			console.log(id);
-			$(id).animate({width: "100%", height: "100%"}, 800);
-			$(".image").not(this).hide("slow");
-		}
-	</script>
-	<div class="onboarding_registration_container animate__animated animate__bounceInDown animate__delay-5s" title="🤩">
-		<div class="btn_onboarding_close" onclick="closeRegistration()">✖️</div>
-		<div class="onboarding-registration_slide initiation">
-			<span class="animate__animated animate__flash animate__infinite animate__slower" style="font-size: 3rem; margin: ">Accepting Applications</span>
-			<div class="onboarding_registration__msg">
-				<h2>Do you have the chops to be a livestream Trader?</h2>
-				<h2>Can you build a die-hard cult 🧟🧟‍♀️ community?</h2>
-				<h2>Are you a hidden gem 💎?</h2>
-			</div>
-			<div class="btn-container registration">
-				<div class="btn-registration trader animate__animated animate__bounce animate__infinite animate__slow">Apply</div>
-			</div>
-		</div>
-	</div>
-	<script>
-		var closeRegistration = function(e) {
-			$('.onboarding_registration_container').removeClass('animate__animated animate__bounceInDown animate__delay-5s').promise().done(function() {
-				$('.onboarding_registration_container').addClass('animate__animated animate__bounceOutUp');
-			});
-		}
-	</script>
   </body>
 </html>
