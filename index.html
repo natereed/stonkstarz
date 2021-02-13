@@ -49,15 +49,18 @@
 		        overflow: hidden!important;
 		    }
 		    .logo__header_container {
-		    	top: 15%!important;
+		    	top: 35%!important;
 		    }
 		    .logo__header_container h1 {
+		    	font-size:4rem!important;
+		    }
+		    .logo__header_container h4 {
 		    	font-size:2.3rem!important;
 		    }
 		    .stonkstarz_logo {
-		    	background-image: url(static/logo/stonkstarz_logo_100.png)!important;
-		    	width: 100px!important;
-				height: 100px!important;
+		    	/*background-image: url(static/logo/stonkstarz_logo_100.png)!important;*/
+		    	width: 140px!important;
+				height: 140px!important;
 		    }
 		}
 		body {
@@ -84,6 +87,7 @@
 		}
 		.logo__header_container h1 {
 			font-family: 'Don Graffiti';
+			margin-bottom:2rem;
 			/*font-family: 'Goldman', cursive;*/
 			font-size: 12rem;
 			color:white;
@@ -111,159 +115,15 @@
 			            0 0 10px fuchsia, 
 			            0 0 20px fuchsia;
 		}
-		.outer_div_container {
-			position:relative;
-			width: 100%;
-			height: 100%;
-		}
-		.grid_steam_container {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			margin: 0 auto;
-			display: grid;
-			grid-template-columns: auto auto;
-			background: transparent;
-			width: fit-content;
-			height: fit-content;
-		}
-		.stream_container {
-			position: relative;
-			/*display:flex;*/
-			align-items:center;
-			justify-content:center;
-			height: fit-content;
-			border-radius: 10px;
-			margin: 2rem;
-			cursor: pointer;
-			box-shadow:
-			    0 0 5px 2.5px #fff,  /* inner white */
-			    0 0 30px 12px #f0f, /* middle magenta */
-			    0 0 17px 11px #0ff; /* outer cyan */
-		}
-		iframe {
-			border-radius:10px;
-		}
-		.live-players-container {
-		  position: absolute;
-		  bottom: 2%;
-		  right: 2%;
-		  font-size: 2rem;
-		  font-family: 'Acme';
-		  z-index: 3;
-		  color: white;
-		  text-shadow: 0 4px 8px rgb(0,0,0,0.7);
-		  /*text-shadow:0 0 10px #fff,
-		      0 0 20px #fff, 
-		      0 0 30px #D4AC0D, 
-		      0 0 40px #D4AC0D,
-		      0 0 60px #D4AC0D;*/
-		}
-		.onboarding_registration_container {
-			position: absolute;
-			font-family: 'Acme';
-			top: 20%;
-			right:0;
-			left: 0;
-			margin: 0 auto;
-			width: 40%;
-			/*height: 60%;*/
-			background: rgb(255,255,255, 0.95);
-			text-shadow: 0 4px 8px rgb(0,0,0,0.6);
-			border-radius: 10px;
-			min-width: 500px;
-			max-width: 550px;
-			/*min-height: 600px;*/
-			z-index:11;
-			text-align: center;
-			padding: 1rem 0.4rem 2rem 0.4rem;
-			box-shadow:
-			    0 0 5px 2.5px #fff,  /* inner white */
-			    0 0 30px 12px #f0f, /* middle magenta */
-			    0 0 17px 11px #0ff;
-		}
-		.onboarding_registration_container::before {
-			content: attr(title);
-			font-size:12rem;
-			position: absolute;
-			top: 20%;
-			left: 0;
-			right: 0;
-			margin: 0 auto;
-			z-index:-1;
-			opacity: 0.4
-		}
-		.btn-container {
-			margin-top: 3rem;
-			text-align: center;
-			width: 100%;
-		}
-		.btn-registration {
-			font-size:2rem;
-			padding: 0.5rem 1rem 0.3rem 1rem;
-			border: thick solid black;
-			width: fit-content;
-			border-radius: 20px;
-			margin: 0 auto;
-			filter: drop-shadow(2px 4px 6px rgb(0,0,0,0.5));
-			cursor:pointer;
-			transition: transform 0.3s ease-in;
-			-webkit-transition: transform 0.3s ease-in;
-		}
-		.btn-registration::hover {
-			transform: scale(1.2);
-			transition: transform 0.3s ease-in;
-			-webkit-transition: transform 0.3s ease-in;
-		}
-		.onboarding_registration__msg {
-			margin: 3rem 0;
-		}
-		.dc-common-wrapper.dc-top-bar-wrapper {
-			background: transparent;
-		}
-		.dc-top-bar-message {
-			font-family: 'Acme';
-			color: white;
-			position: absolute;
-			top: 100%;
-			left:0;
-			right:0;
-			margin: 0 auto;
-			font-size:1.6rem;
-		}
-		.stocks-trading-container {
-		  position: absolute;
-		  top: 2%;
-		  right: 1.5%;
-		  width: 20%;
-		  height: 15%;
-		  min-width:200px;
-		  min-height: 160px;
-		  opacity: 0.8; 
-		  border-radius: 10px;
-		  background: transparent;
-		  border: 3px solid rgb(255,255,255, 0.3);
-		  text-shadow: 0 4px 8px rgba(0,0,0,0.7);
-		  z-index: 11;
-		  padding: 0.4rem 0.2rem;
-		  cursor: pointer;
-		  transition: all 0.5s ease-in;
-		  -webkit-transition: all 0.5s ease-in;
-		  font-family: 'Acme', sans-serif;
-		}
-		#stock-chart {
-			width: 100%;
-			height: 100%;
-		}
-		.btn_onboarding_close {
-			position: absolute;
-			top: 2%;
-			right: 2%;
-			font-size:2rem;
-			z-index:1;
-			cursor:pointer;
+		.logo__header_container h4 {
+			margin-top:2rem;
+			font-size:4rem;
+			color:white;
+			text-shadow:0 0 5px #fff,
+			          0 0 10px #fff, 
+			          0 0 20px yellow, 
+			          0 0 30px yellow,
+			          0 0 50px yellow;
 		}
 	</style>
   </head>
@@ -271,6 +131,7 @@
 	<div class="logo__header_container">
 		<h1>Stonk Starz</h1>
 		<div class="stonkstarz_logo"></div>
+		<h4>Coming Soon</h4>
 	</div>
   </body>
 </html>
